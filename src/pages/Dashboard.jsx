@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo } from 'react';
 import CoinInfo from '../Components/CoinInfo';
 import DashboardCharts from '../Components/DashboardCharts';
+import DashboardInsights from '../Components/DashboardInsights';
 import MainShell from '../layouts/MainShell';
 
 const LIST_LIMIT = 30;
@@ -54,6 +55,8 @@ export default function Dashboard() {
   const [regionFilter, setRegionFilter] = useState('all');
   const [popMinStr, setPopMinStr] = useState('');
   const [popMaxStr, setPopMaxStr] = useState('');
+  const [chartsVisible, setChartsVisible] = useState(true);
+  const [vizKind, setVizKind] = useState('countries-hbar');
 
   useEffect(() => {
     let cancelled = false;
@@ -290,7 +293,15 @@ export default function Dashboard() {
 
       {list && list.length > 0 && (
         <>
-          <DashboardCharts list={list} />
+          <DashboardInsights listLength={list.length} />
+
+          <DashboardCharts
+            list={list}
+            visible={chartsVisible}
+            onVisibleChange={setChartsVisible}
+            vizKind={vizKind}
+            onVizKindChange={setVizKind}
+          />
 
           <div className="controls-card">
             <div className="controls-card__search">
