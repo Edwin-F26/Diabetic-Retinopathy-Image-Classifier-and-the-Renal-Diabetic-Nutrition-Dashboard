@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import CoinInfo from '../Components/CoinInfo';
+import DashboardCharts from '../Components/DashboardCharts';
 import MainShell from '../layouts/MainShell';
 
 const LIST_LIMIT = 30;
@@ -289,6 +290,8 @@ export default function Dashboard() {
 
       {list && list.length > 0 && (
         <>
+          <DashboardCharts list={list} />
+
           <div className="controls-card">
             <div className="controls-card__search">
               <label className="controls-card__label" htmlFor="country-search">

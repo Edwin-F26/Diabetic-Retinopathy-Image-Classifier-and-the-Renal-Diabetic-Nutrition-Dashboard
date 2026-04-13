@@ -743,3 +743,128 @@
     gap: 0.2rem;
   }
 }
+
+/* Dashboard charts (Recharts) */
+.dashboard-charts {
+  margin: 0 0 1.75rem;
+}
+
+.dashboard-charts__intro {
+  margin-bottom: 1.1rem;
+}
+
+.dashboard-charts__heading {
+  margin: 0 0 0.35rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-h);
+  letter-spacing: -0.02em;
+}
+
+.dashboard-charts__lede {
+  margin: 0;
+  max-width: 42rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.dashboard-charts__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  align-items: stretch;
+}
+
+@media (max-width: 960px) {
+  .dashboard-charts__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dashboard-chart-card {
+  margin: 0;
+  padding: 1.1rem 1.15rem 1rem;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.dashboard-chart-card__caption {
+  margin: 0;
+}
+
+.dashboard-chart-card__title {
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.dashboard-chart-card__story {
+  margin: 0;
+  font-size: 0.84rem;
+  line-height: 1.45;
+  color: var(--text);
+}
+
+.dashboard-chart-card__plot {
+  min-height: 360px;
+  min-width: 0;
+  margin: 0 -0.25rem;
+}
+
+.dashboard-chart-card__plot--pie {
+  margin-bottom: -0.25rem;
+}
+
+.dashboard-chart-tooltip {
+  padding: 0.5rem 0.65rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  box-shadow: var(--shadow);
+  max-width: 16rem;
+}
+
+.dashboard-chart-tooltip__title {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-h);
+  margin-bottom: 0.2rem;
+}
+
+.dashboard-chart-tooltip__value {
+  font-size: 0.78rem;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+.dashboard-chart-legend {
+  color: var(--text);
+  font-size: 0.78rem;
+}
+
+.dashboard-charts .recharts-cartesian-axis-tick-value {
+  fill: var(--text);
+}
+
+.dashboard-charts .recharts-pie-label-text {
+  fill: var(--text-h);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.dashboard-charts .recharts-legend-item-text {
+  color: var(--text) !important;
+}
+
+.dashboard-charts .recharts-default-legend {
+  font-size: 0.78rem;
+}
