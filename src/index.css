@@ -1,0 +1,107 @@
+:root {
+  --text: #5c5a66;
+  --text-h: #0c0a12;
+  --bg: #ffffff;
+  --bg-page: #ececf0;
+  --border: #d8d6dc;
+  --code-bg: #f2f1f6;
+  --accent: #2563eb;
+  --accent-muted: #3b82f6;
+  --accent-bg: rgba(37, 99, 235, 0.1);
+  --accent-border: rgba(37, 99, 235, 0.45);
+  --social-bg: rgba(242, 241, 246, 0.85);
+  --shadow: rgba(15, 23, 42, 0.08) 0 4px 24px -4px, rgba(15, 23, 42, 0.06) 0 2px 8px -2px;
+  --shadow-lg: rgba(15, 23, 42, 0.12) 0 24px 48px -12px;
+
+  --sans: 'Segoe UI', system-ui, sans-serif;
+  --heading: 'Segoe UI', system-ui, sans-serif;
+  --mono: ui-monospace, 'Cascadia Code', Consolas, monospace;
+
+  --row-cols: 2.25rem 2.75rem minmax(0, 1fr) minmax(7rem, 9.5rem) minmax(5.5rem, 8rem);
+
+  font: 17px/150% var(--sans);
+  letter-spacing: 0.01em;
+  color-scheme: light dark;
+  color: var(--text);
+  background: var(--bg-page);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #a1a1aa;
+    --text-h: #fafafa;
+    --bg: #14141a;
+    --bg-page: #0c0c10;
+    --border: #2a2a32;
+    --code-bg: #1c1c24;
+    --accent: #60a5fa;
+    --accent-muted: #93c5fd;
+    --accent-bg: rgba(96, 165, 250, 0.12);
+    --accent-border: rgba(96, 165, 250, 0.45);
+    --social-bg: rgba(28, 28, 36, 0.9);
+    --shadow: rgba(0, 0, 0, 0.45) 0 8px 28px -6px;
+    --shadow-lg: rgba(0, 0, 0, 0.55) 0 28px 56px -16px;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+h1,
+h2 {
+  font-family: var(--heading);
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+h1 {
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin: 0;
+}
+
+h2 {
+  font-size: 1.15rem;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.35em;
+}
+
+p {
+  margin: 0;
+}
+
+code {
+  font-family: var(--mono);
+  font-size: 0.9em;
+  padding: 0.15em 0.45em;
+  border-radius: 6px;
+  background: var(--code-bg);
+  color: var(--text-h);
+}

@@ -1,0 +1,127 @@
+.coin-info {
+  display: grid;
+  grid-template-columns: var(--row-cols);
+  align-items: center;
+  gap: 0 0.75rem;
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+  text-align: left;
+  transition: background-color 0.15s ease;
+}
+
+.coin-info:last-child {
+  border-bottom: none;
+}
+
+.coin-info:hover {
+  background: var(--social-bg);
+}
+
+.coin-info__rank {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+  text-align: right;
+}
+
+.coin-info__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid var(--border);
+}
+
+.coin-info__icon--placeholder {
+  display: block;
+  background: var(--code-bg);
+}
+
+.coin-info__identity {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  min-width: 0;
+}
+
+.coin-info__name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-h);
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.coin-info__code {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  opacity: 0.9;
+}
+
+.coin-info__pop {
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-h);
+  text-align: right;
+}
+
+.coin-info__region {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text);
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 640px) {
+  .coin-info {
+    grid-template-columns: 2rem 2.5rem minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    gap: 0.35rem 0.65rem;
+  }
+
+  .coin-info__rank {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .coin-info__icon,
+  .coin-info__icon--placeholder {
+    grid-column: 1;
+    grid-row: 2;
+    align-self: start;
+  }
+
+  .coin-info__identity {
+    grid-column: 2 / span 2;
+    grid-row: 1;
+  }
+
+  .coin-info__pop {
+    grid-column: 2;
+    grid-row: 2;
+    text-align: left;
+  }
+
+  .coin-info__region {
+    grid-column: 3;
+    grid-row: 2;
+    text-align: right;
+  }
+}
