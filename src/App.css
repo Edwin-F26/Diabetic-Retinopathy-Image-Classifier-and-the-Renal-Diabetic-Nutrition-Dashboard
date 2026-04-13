@@ -643,6 +643,45 @@
   color: var(--text);
 }
 
+.country-detail__permalink-wrap {
+  margin: 0 0 1.25rem;
+  padding: 0.75rem 0.9rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--code-bg);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.country-detail__permalink-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.country-detail__permalink {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: none;
+  word-break: break-all;
+  line-height: 1.4;
+}
+
+.country-detail__permalink:hover {
+  text-decoration: underline;
+}
+
+.country-detail__permalink:focus-visible {
+  outline: none;
+  border-radius: 6px;
+  box-shadow: 0 0 0 3px var(--accent-bg);
+}
+
 .country-detail__facts {
   margin: 0;
   display: grid;

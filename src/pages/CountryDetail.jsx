@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, generatePath } from 'react-router-dom';
 import MainShell from '../layouts/MainShell';
 
 const DETAIL_FIELDS =
@@ -99,6 +99,14 @@ export default function CountryDetail() {
   const flagUrl = country?.flags?.png ?? country?.flags?.svg;
   const mapsUrl = country?.maps?.googleMaps ?? country?.maps?.openStreetMaps;
 
+  const detailPath = country
+    ? generatePath('/country/:cca2', { cca2: country.cca2 })
+    : '';
+  const detailUrl =
+    detailPath && typeof window !== 'undefined'
+      ? `${window.location.origin}${detailPath}`
+      : detailPath;
+
   return (
     <MainShell>
       <nav className="country-detail__nav" aria-label="Breadcrumb">
@@ -159,6 +167,19 @@ export default function CountryDetail() {
             Snapshot fields you already saw on the dashboard appear below with
             fuller context—plus capital, area, languages, and more from the same
             API.
+          </p>
+
+          <p className="country-detail__permalink-wrap">
+            <span className="country-detail__permalink-label" id="country-permalink-label">
+              Direct link to this page
+            </span>
+            <a
+              className="country-detail__permalink"
+              href={detailUrl || detailPath}
+              aria-labelledby="country-permalink-label"
+            >
+              {detailUrl || detailPath}
+            </a>
           </p>
 
           <dl className="country-detail__facts">
