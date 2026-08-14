@@ -73,6 +73,67 @@ export function Logo({ size = 40 }) {
   );
 }
 
+/**
+ * Empty-state illustration: a bare place setting inside a slowly rotating
+ * tracking orbit. Drawn as vector so it has no background of its own and picks
+ * up the accent colours of whichever theme is active.
+ */
+export function EmptyPlateArt({ size = 200 }) {
+  const dots = [
+    [30, 46, 3.5],
+    [150, 27, 4.5],
+    [177, 62, 6],
+    [24, 133, 3],
+    [59, 172, 6],
+    [173, 152, 3.5],
+    [127, 186, 4],
+  ];
+
+  return (
+    <svg
+      className="plate-art"
+      width={size}
+      height={size}
+      viewBox="0 0 200 200"
+      fill="none"
+      stroke="url(#plate-gradient)"
+      strokeWidth="2.4"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <defs>
+        <linearGradient id="plate-gradient" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="var(--accent)" />
+          <stop offset="100%" stopColor="var(--accent-2)" />
+        </linearGradient>
+      </defs>
+
+      <circle
+        className="plate-art__orbit"
+        cx="100"
+        cy="100"
+        r="79"
+        strokeDasharray="7 8"
+        opacity="0.5"
+      />
+
+      <circle cx="100" cy="100" r="52" />
+      <circle cx="100" cy="100" r="38" opacity="0.75" />
+
+      {/* fork */}
+      <path d="M36 52v25a9 9 0 0 0 18 0V52" />
+      <path d="M41.5 52v23M48.5 52v23" opacity="0.8" />
+      <path d="M45 86v57" strokeWidth="3" />
+
+      {dots.map(([cx, cy, r]) => (
+        <circle key={`${cx}-${cy}`} cx={cx} cy={cy} r={r} opacity="0.65" />
+      ))}
+    </svg>
+  );
+}
+
 /* ---------------------------------------------------------------- metrics */
 
 export function IconWheat(props) {

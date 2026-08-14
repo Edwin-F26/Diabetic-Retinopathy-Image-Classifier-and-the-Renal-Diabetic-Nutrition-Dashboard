@@ -2,7 +2,6 @@ import './App.css';
 import Dashboard from './pages/Dashboard';
 import NutritionProvider from './state/NutritionProvider';
 import { Logo } from './components/Icons';
-import { USING_DEMO_KEY } from './lib/fdc';
 
 export default function App() {
   return (
@@ -39,17 +38,6 @@ export default function App() {
         </header>
 
         <main className="app-body">
-          {USING_DEMO_KEY && (
-            <p className="app-banner reveal" role="status">
-              Running on the shared <code>DEMO_KEY</code> — about 30 searches per
-              hour.{' '}
-              <a href="https://fdc.nal.usda.gov/api-key-signup" target="_blank" rel="noreferrer">
-                Grab a free key
-              </a>{' '}
-              and add it to <code>.env.local</code> as <code>VITE_FDC_API_KEY</code>.
-            </p>
-          )}
-
           <Dashboard />
         </main>
 

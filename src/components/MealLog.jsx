@@ -3,7 +3,7 @@ import { buildSampleDay } from '../data/sampleDay';
 import { MEALS } from '../lib/nutrition';
 import { useNutrition } from '../state/nutritionContext';
 import { formatAmount } from '../lib/format';
-import { IconSparkles, IconTrash, MealIcon } from './Icons';
+import { EmptyPlateArt, IconSparkles, IconTrash, MealIcon } from './Icons';
 
 const ROW_METRICS = [
   { key: 'energy', unit: 'kcal', short: 'kcal' },
@@ -115,14 +115,9 @@ function EntryRow({ entry, index, onRemove, onUpdate, onMove }) {
 function EmptyDay({ onLoadSample }) {
   return (
     <div className="empty-day">
-      <img
-        className="empty-day__art"
-        src="/images/empty-plate.png"
-        alt=""
-        width="200"
-        height="200"
-        loading="lazy"
-      />
+      <div className="empty-day__art">
+        <EmptyPlateArt size={190} />
+      </div>
       <h3 className="empty-day__title">Nothing on the plate yet</h3>
       <p className="empty-day__text">
         Search a food in the panel above to start today&apos;s log — or drop in a
