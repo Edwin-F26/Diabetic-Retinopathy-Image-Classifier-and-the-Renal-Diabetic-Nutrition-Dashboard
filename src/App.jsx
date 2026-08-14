@@ -1,36 +1,69 @@
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Dashboard from './pages/Dashboard';
-import CountryDetail from './pages/CountryDetail';
+import NutritionProvider from './state/NutritionProvider';
+import { Logo } from './components/Icons';
+import { USING_DEMO_KEY } from './lib/fdc';
 
-function App() {
+export default function App() {
   return (
-    <BrowserRouter>
+    <NutritionProvider>
       <div className="app">
+        <div className="app__aurora" aria-hidden>
+          <span className="app__blob app__blob--one" />
+          <span className="app__blob app__blob--two" />
+          <span className="app__blob app__blob--three" />
+        </div>
+
         <header className="app-header">
           <div className="app-header__inner">
-            <Link to="/" className="app-brand app-brand--link">
-              <span className="app-brand__mark" aria-hidden />
-              <div>
-                <p className="app-brand__name">Population Atlas</p>
-                <p className="app-brand__tag">Top countries by population</p>
+            <div className="brand">
+              <Logo size={40} />
+              <div className="brand__text">
+                <p className="brand__name">Renal &amp; Diabetic Nutrition</p>
+                <p className="brand__tag">
+                  Carbs, sodium, potassium &amp; phosphorus in one dashboard
+                </p>
               </div>
-            </Link>
-            <p className="app-header__meta">
-              Data: <span className="app-header__pill">REST Countries</span>
-            </p>
+            </div>
+
+            <a
+              className="app-header__source"
+              href="https://fdc.nal.usda.gov/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span className="app-header__source-dot" aria-hidden />
+              USDA FoodData Central
+            </a>
           </div>
         </header>
 
-        <div className="app-body">
-          <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/country/:cca2" element={<CountryDetail />} />
-          </Routes>
-        </div>
+        <main className="app-body">
+          {USING_DEMO_KEY && (
+            <p className="app-banner reveal" role="status">
+              Running on the shared <code>DEMO_KEY</code> — about 30 searches per
+              hour.{' '}
+              <a href="https://fdc.nal.usda.gov/api-key-signup" target="_blank" rel="noreferrer">
+                Grab a free key
+              </a>{' '}
+              and add it to <code>.env.local</code> as <code>VITE_FDC_API_KEY</code>.
+            </p>
+          )}
+
+          <Dashboard />
+        </main>
+
+        <footer className="app-footer">
+          <div className="app-footer__inner">
+            <Logo size={26} />
+            <p>
+              Educational project. Nutrient values come from USDA FoodData Central;
+              glycemic load is estimated. Not a substitute for advice from your
+              nephrologist, endocrinologist, or renal dietitian.
+            </p>
+          </div>
+        </footer>
       </div>
-    </BrowserRouter>
+    </NutritionProvider>
   );
 }
-
-export default App;

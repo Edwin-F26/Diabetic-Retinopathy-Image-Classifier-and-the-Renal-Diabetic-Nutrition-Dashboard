@@ -1,7 +1,8 @@
 {
-  "name": "crypto-hustle",
+  "name": "renal-diabetic-nutrition-dashboard",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
+  "description": "Track carbohydrate, sodium, potassium, and phosphorus against kidney and diabetes daily limits.",
   "type": "module",
   "scripts": {
     "dev": "vite",
