@@ -1130,7 +1130,10 @@
   scrollbar-width: thin;
 }
 
+/* The list is a height-capped column flex container, so rows must be told not
+   to shrink — otherwise they compress to fit and their text collides. */
 .result-item {
+  flex-shrink: 0;
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   background: var(--bg-subtle);
@@ -1246,6 +1249,7 @@
 /* ---------------------------------------------------------- skeletons */
 
 .skeleton-row {
+  flex-shrink: 0;
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   background: var(--bg-subtle);
